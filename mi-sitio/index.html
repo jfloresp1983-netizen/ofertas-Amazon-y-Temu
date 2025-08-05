@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ofertas Amazon & Temu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🔥 Ofertas Exclusivas Amazon & Temu 🔥</h1>
+    <p>Aprovecha descuentos y busca tus productos favoritos</p>
+  </header>
+
+  <!-- Carrusel -->
+  <div class="carousel">
+    <img src="img/echo-dot.jpg" alt="Echo Dot" class="active">
+    <img src="img/auriculares.jpg" alt="Auriculares Bluetooth">
+    <img src="img/laptop.jpg" alt="Laptop HP">
+  </div>
+
+  <!-- Buscadores -->
+  <nav>
+    <form action="https://www.amazon.com/s" method="get" target="_blank">
+      <input type="text" name="k" placeholder="Buscar en Amazon...">
+      <input type="hidden" name="tag" value="TU-CODIGO-AFILIADO-AMAZON">
+      <button type="submit">🔍 Amazon</button>
+    </form>
+    <form action="https://www.temu.com/search_result.html" method="get" target="_blank">
+      <input type="text" name="search_key" placeholder="Buscar en Temu...">
+      <input type="hidden" name="afid" value="TU-CODIGO-AFILIADO-TEMU">
+      <button type="submit">🔍 Temu</button>
+    </form>
+  </nav>
+
+  <!-- Productos destacados -->
+  <div class="container">
+    <div class="product">
+      <img src="img/echo-dot.jpg" alt="Echo Dot Amazon">
+      <h2>Echo Dot (5ta Gen) con Alexa</h2>
+      <p class="price">$49.99</p>
+      <a class="btn" href="TU-LINK-AFILIADO-AMAZON" target="_blank">Comprar en Amazon</a>
+    </div>
+    <div class="product">
+      <img src="img/auriculares.jpg" alt="Auriculares Temu">
+      <h2>Auriculares Bluetooth Inalámbricos</h2>
+      <p class="price">$15.99</p>
+      <a class="btn" href="TU-LINK-AFILIADO-TEMU" target="_blank">Comprar en Temu</a>
+    </div>
+    <div class="product">
+      <img src="img/laptop.jpg" alt="Laptop HP">
+      <h2>Laptop HP 15.6"</h2>
+      <p class="price">$499.00</p>
+      <a class="btn" href="TU-LINK-AFILIADO-AMAZON" target="_blank">Comprar en Amazon</a>
+    </div>
+  </div>
+
+  <!-- Botones para compartir -->
+  <div class="social-share">
+    <h3>📢 Comparte esta página</h3>
+    <a class="whatsapp" href="https://api.whatsapp.com/send?text=🔥 Mira estas ofertas: TU-URL-DE-LA-PAGINA" target="_blank">WhatsApp</a>
+    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=TU-URL-DE-LA-PAGINA" target="_blank">Facebook</a>
+    <a class="twitter" href="https://twitter.com/intent/tweet?url=TU-URL-DE-LA-PAGINA&text=🔥 Ofertas exclusivas en Amazon & Temu" target="_blank">X (Twitter)</a>
+    <a class="tiktok" href="https://www.tiktok.com/@TU-USUARIO" target="_blank">TikTok</a>
+    <a class="instagram" href="https://www.instagram.com/TU-USUARIO/" target="_blank">Instagram</a>
+    <button class="copy-btn" onclick="copiarEnlace()">📋 Copiar Enlace</button>
+  </div>
+
+  <!-- Contador de visitas -->
+  <footer>
+    <p>© 2025 Ofertas Afiliados | Algunos enlaces generan comisiones sin costo adicional para ti.</p>
+    <p id="contador">Visitas: 0</p>
+  </footer>
+
+  <script>
+    // Carrusel automático
+    let index = 0;
+    const slides = document.querySelectorAll(".carousel img");
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 3000);
+
+    // Contador de visitas
+    if (localStorage.getItem("visitas")) {
+      let visitas = parseInt(localStorage.getItem("visitas")) + 1;
+      localStorage.setItem("visitas", visitas);
+      document.getElementById("contador").innerText = "Visitas: " + visitas;
+    } else {
+      localStorage.setItem("visitas", 1);
+      document.getElementById("contador").innerText = "Visitas: 1";
+    }
+
+    // Copiar enlace
+    function copiarEnlace() {
+      const url = "TU-URL-DE-LA-PAGINA";
+      navigator.clipboard.writeText(url).then(() => {
+        alert("✅ Enlace copiado: " + url);
+      });
+    }
+  </script>
+</body>
+</html>
